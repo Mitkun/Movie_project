@@ -1,0 +1,23 @@
+link source: https://github.com/khaitruong1301/react_cyberlearn_khoahoc_05
+
+https://react-slick.neostack.com/docs/example/multiple-items
+
+http://movieapi.cyberlearn.vn/swagger/index.html
+
+https://docs.google.com/document/d/12N-u6ox6gt8FgML1Y3zbjipxIZRTN_vrtisJRzWy87c/edit
+
+https://freefrontend.com/css-card-hover-effects/
+
+http://movieapi.cyberlearn.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP01
+
+
+
+üLink source layout: https://anotepad.com/notes/h6wn5nmc
+
+üLink source layout: https://mambaui.com/components/sidebar
+
+üLink source layout: https://tailwindui.com/components/application-ui/overlays/modals
+
+üLink source layout: https://tailblocks.cc/
+
+üData: https://docs.google.com/document/d/1L9H8dizls_5zryCwuY5JBI2AKFoUPkgizC0FhgFeJ_k/edit?usp=sharing
