@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { DOMAIN } from '../../util/settings/config';
+import { DOMAIN, STATUS_CODE } from '../../util/settings/config';
 import { SET_CAROUSEL } from './types/CarouselType';
 import { quanLyPhimService } from '../../services/QuanLyPhimService';
 
@@ -9,13 +9,16 @@ export const getCarouselAction = () => {
       try {
          //Sử dụng tham số thamSo
          const result = await quanLyPhimService.layDanhSachBanner();
+         if (result.status === STATUS_CODE.SUCCESS) {
+            dispatch({
+               type: SET_CAROUSEL,
+               arrImg: result.data.content
+            })
+         }
 
-         dispatch({
-            type: SET_CAROUSEL,
-            arrImg: result.data.content
-         })
-      } catch (errors) {
-         console.log('errors', errors)
+      } catch (err) {
+         console.log('err', err);
+         console.log('errors', err.response?.data);
       }
    };
 }

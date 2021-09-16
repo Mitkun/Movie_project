@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, memo, useEffect } from "react";
 import Slider from "react-slick";
 import styleSlick from './MultipleRowSlick.module.css';
 import Film from "../Film/Film";
@@ -40,6 +40,7 @@ const MultipleRowsSlick = (props) => {
 
    const dispatch = useDispatch()
 
+
    const renderFilms = () => {
       return props.arrFilm.slice(0, 12).map((item, index) => {
          return <div key={index}>
@@ -60,7 +61,26 @@ const MultipleRowsSlick = (props) => {
       slidesPerRow: 2,
       variableWidth: true,
       nextArrow: <SampleNextArrow />,
-      prevArrow: <SamplePrevArrow />
+      prevArrow: <SamplePrevArrow />,
+      responsive: [
+         {
+            breakpoint: 1024,
+            settings: {
+               slidesToShow: 1,
+               slidesPerRow: 2,
+               infinite: true,
+            }
+         },
+         {
+            breakpoint: 600,
+            settings: {
+               slidesToShow: 1,
+               slidesPerRow: 1,
+               // initialSlide: 2
+            }
+         },
+
+      ]
    };
    return (
       <div>
@@ -80,4 +100,4 @@ const MultipleRowsSlick = (props) => {
 
 }
 
-export default MultipleRowsSlick;
+export default memo(MultipleRowsSlick);

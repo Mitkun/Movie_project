@@ -1,64 +1,71 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
+import _ from 'lodash';
 
 export default function Footer(props) {
+
+   const { heThongRapChieu } = useSelector(state => state.QuanLyRapReducer);
+
+   //lọc các thuộc tính cần thiết đề tránh dư thừa dữ liệu
+   const arrHeThongRap = _.map(heThongRapChieu, (heThongRap) => _.pick(heThongRap, ['logo']));
    return (
       <footer className="px-4 divide-y dark:bg-coolGray-800 dark:text-coolGray-100 bg-gray-700">
          <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
             <div className="lg:w-1/3">
                <a href="#" className="flex justify-center space-x-3 lg:justify-start">
                   <div className="flex items-center justify-center w-12 h-12 rounded-full dark:bg-violet-400">
-                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" className="flex-shrink-0 w-5 h-5 rounded-full dark:text-coolGray-900">
-                        <path d="M18.266 26.068l7.839-7.854 4.469 4.479c1.859 1.859 1.859 4.875 0 6.734l-1.104 1.104c-1.859 1.865-4.875 1.865-6.734 0zM30.563 2.531l-1.109-1.104c-1.859-1.859-4.875-1.859-6.734 0l-6.719 6.734-6.734-6.734c-1.859-1.859-4.875-1.859-6.734 0l-1.104 1.104c-1.859 1.859-1.859 4.875 0 6.734l6.734 6.734-6.734 6.734c-1.859 1.859-1.859 4.875 0 6.734l1.104 1.104c1.859 1.859 4.875 1.859 6.734 0l21.307-21.307c1.859-1.859 1.859-4.875 0-6.734z" />
-                     </svg>
+                     <img className="w-10 h-10" src='https://www.pikpng.com/pngl/b/183-1832362_temporary-overwatch-logo-transparent-8835-symmetry-clipart.png' alt="movieLogo" />
                   </div>
-                  <span className="self-center text-2xl font-semibold">Brand name</span>
+                  <span className="self-center text-2xl font-semibold">Mit Movie</span>
                </a>
             </div>
             <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
                <div className="space-y-3">
-                  <h3 className="tracking-wide uppercase dark:text-coolGray-50">Product</h3>
+                  <h3 className="tracking-wide uppercase text-white">Đối Tác</h3>
+                  <div className="space-y-1">
+                     <div className="grid grid-cols-3">
+                        {arrHeThongRap.map((doiTac, index) => {
+                           return <div className="my-1" key={index}>
+                              <img src={doiTac.logo} style={{ width: 40 }} />
+                           </div>
+                        })}
+                     </div>
+                  </div>
+               </div>
+               <div className="space-y-3">
+                  <h3 className="tracking-wide uppercase text-white">Company</h3>
                   <ul className="space-y-1">
                      <li>
-                        <a href="#">Features</a>
+                        <a href="#">Thỏa thuận sử dụng</a>
                      </li>
                      <li>
-                        <a href="#">Integrations</a>
+                        <a href="#">Quy chế hoạt động</a>
                      </li>
                      <li>
-                        <a href="#">Pricing</a>
+                        <a href="#">Chính sách bảo mật</a>
                      </li>
                      <li>
-                        <a href="#">FAQ</a>
+                        <a href="#">Quyền lợi thành viên</a>
                      </li>
                   </ul>
                </div>
                <div className="space-y-3">
-                  <h3 className="tracking-wide uppercase dark:text-coolGray-50">Company</h3>
-                  <ul className="space-y-1">
-                     <li>
-                        <a href="#">Privacy</a>
-                     </li>
-                     <li>
-                        <a href="#">Terms of Service</a>
-                     </li>
-                  </ul>
+                  <h3 className="uppercase text-white">MOBILE APP</h3>
+                  <div className="space-y-1 flex">
+                     <div>
+                        <a _ngcontent-ebq-c77="" target="_blank" href="https://apps.apple.com/vn/app/tix-%C4%91%E1%BA%B7t-v%C3%A9-nhanh-nh%E1%BA%A5t/id615186197" title="Apple App">
+                           <img src="https://ttv2412-movie.vercel.app/assets/img/apple-logo.png" alt="apple-logo" style={{ width: 30 }} />
+                        </a>
+                     </div>
+                     <div className="ml-2">
+                        <a _ngcontent-ebq-c77="" target="_blank" href="https://play.google.com/store/apps/details?id=vn.com.vng.phim123" title="Android App">
+                           <img src="https://ttv2412-movie.vercel.app/assets/img/android-logo.png" alt="android-logo" style={{ width: 30 }} />
+                        </a>
+                     </div>
+                  </div>
                </div>
                <div className="space-y-3">
-                  <h3 className="uppercase dark:text-coolGray-50">Developers</h3>
-                  <ul className="space-y-1">
-                     <li>
-                        <a href="#">Public API</a>
-                     </li>
-                     <li>
-                        <a href="#">Documentation</a>
-                     </li>
-                     <li>
-                        <a href="#">Guides</a>
-                     </li>
-                  </ul>
-               </div>
-               <div className="space-y-3">
-                  <div className="uppercase dark:text-coolGray-50">Social media</div>
+                  <div className="uppercase text-white">Social media</div>
                   <div className="flex justify-start space-x-3">
                      <a href="#" title="Facebook" className="flex items-center p-1">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" className="w-5 h-5 fill-current">

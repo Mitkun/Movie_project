@@ -13,7 +13,6 @@ export const HomeTemplate = (props) => { //props: patch, exact, Component
       return <Fragment>
 
          <Header {...propsRoute} />
-         <HomeCarousel {...propsRoute} />
 
          <Component {...propsRoute} />
 
